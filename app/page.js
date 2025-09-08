@@ -16,9 +16,9 @@ const Home = async () => {
 
 
     return (
-        <main className="bg-gray-200">
+        <main className="bg-gray-200 pb-16">
             <section className=" max-w-[700] py-3 px-2 m-auto text-black">
-                <h1 className="text-3xl">Alerts</h1>
+                <h1 className="text-3xl">Messages</h1>
                 {result.length === 0? <div>No data to show</div> :
                 result.map(alert => (
                     <div key={alert._id} className="rounded bg-slate-100 grid gap-2 p-2 ">
