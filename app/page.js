@@ -1,6 +1,9 @@
 import clientPromise from "@/lib/mongodb";
+import { unstable_noStore as noStore} from "next/cache";
 
 const Home = async () => {
+    noStore();
+    
     const client = await clientPromise
     const db = client.db("aavishkar")
     const collection = db.collection("alerts")
