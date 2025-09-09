@@ -65,7 +65,7 @@ const Home = () => {
 
     if (loading) {
         return (
-            <main>
+            <main className="text-black">
                 Loading...
             </main>
         )
@@ -73,7 +73,7 @@ const Home = () => {
 
     if (!alerts) {
         return (
-            <main>
+            <main className="text-black">
                 data not found
             </main>
         )
