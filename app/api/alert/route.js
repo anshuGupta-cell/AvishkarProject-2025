@@ -6,18 +6,32 @@ export const POST = async (req) => {
         type, 
         title,
         desc,
-        date: new Date()
+        date: new Date().toLocaleString("en-IN", {timeZone: "Asia/Kolkata"})
     }
     const client = await clientPromise
     const db = client.db("aavishkar")
     const collection = db.collection("alerts")
-    console.log(body);
     
     const result = await collection.insertOne({body})
 
     return Response.json({
         message: "added",
         body,
+        result
+    })
+}
+
+
+export const GET = async () => {
+     const client = await clientPromise
+    const db = client.db("aavishkar")
+    const collection = db.collection("alerts")
+    
+    const result = await collection.find({}).toArray()
+console.log(result);
+
+    return Response.json({
+        message: "added",
         result
     })
 }
