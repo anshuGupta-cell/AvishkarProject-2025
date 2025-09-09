@@ -27,7 +27,7 @@ export const GET = async () => {
     const db = client.db("aavishkar")
     const collection = db.collection("alerts")
     
-    const result = await collection.find({}).toArray()
+    const result = await collection.find({}).sort({"_id": -1}).toArray()
 console.log(result);
 
     return Response.json({
