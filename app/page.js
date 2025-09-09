@@ -1,10 +1,14 @@
 "use client"
+import { useUser } from "@clerk/nextjs";
 // import clientPromise from "@/lib/mongodb";
 import { unstable_noStore as noStore } from "next/cache";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 
 const Home = () => {
+
+    const {isSingedIn} = useUser()
 
     const[alerts, setAlerts] = useState([])
     const[loading, setLoading] = useState(true)
@@ -18,13 +22,20 @@ const Home = () => {
 
             const res = await fetch("/api/alert", {cache: "no-store"})
             const data = await res.json()
-            console.log(data);
             setAlerts(data.result)
         } catch (error) {
             setAlerts(null)
         } finally {
             setLoading(false)
         }
+        if (isSingedIn) {
+            console.log("hmm");
+            
+        } else {
+            console.log("shivani");
+            
+        }
+        
     }
  
 
@@ -33,6 +44,23 @@ const Home = () => {
     fetchData()
 
     }, [])
+
+    const deleteMessage = async (id) => {
+        console.log(id);
+        const body = JSON.stringify({
+            id
+        })
+        const response = await fetch("/api/alert", {
+           method: "DELETE",
+           "Content-Type": "application/json" ,
+           body: body
+        })
+        const data = await response.json()
+        toast(data.message)
+        console.log(data);
+        fetchData()
+        
+    }
 
 
     if (loading) {
@@ -61,7 +89,11 @@ const Home = () => {
                         <div key={alert._id} className="rounded bg-slate-100 grid gap-2 p-2 ">
                             <div className="flex justify-between align-baseline flex-wrap text-sm ">
                                 <div>{alert.body.type}</div>
-                                <div>{alert.body.date}</div>
+                                <div className="flex items-center gap-2">
+                                    <p>{alert.body.date}</p>
+                                    
+                                    {isSingedIn && <button type="button" className=" hover:bg-slate-300 p-1 rounded-lg" onClick={()=>{deleteMessage(alert._id)}}><img className="w-4" src="/trash-solid-full.svg"/></button>}
+                                </div>
                             </div>
                             <div className="p-1 bg-slate-200 rounded grid gap-1">
                                 <h2 className="text-xl">{alert.body.title}</h2>
