@@ -73,9 +73,9 @@ const Generate = () => {
                     </div>
                     <div className="grid gap-2">
                         <label className="">Description</label>
-                        <input type="text" value={desc} onChange={(e) => { setDesc(e.target.value) }} className="outline-purple-900 p-2 bg-gray-100 rounded-lg" placeholder="enter descripton" required />
+                        <textarea type="text" value={desc} onChange={(e) => { setDesc(e.target.value) }} className="outline-purple-900 p-2 bg-gray-100 rounded-lg" placeholder="enter descripton" required rows={5} />
                     </div>
-                    <button type="submit" className="text-white bg-purple-900 rounded-lg p-2">Add alert</button>
+                    <button type="submit" className="text-white active:bg-purple-800 bg-purple-900 rounded-lg p-2">Add alert</button>
                 </form>
             </section>
         </main>
