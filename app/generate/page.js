@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { toast } from "react-toastify"
 
 const Generate = () => {
     const [type, setType] = useState("Emergency")
@@ -34,7 +35,7 @@ const Generate = () => {
 
         })
         const data = await response.json()
-        console.log("data", data);
+        toast(data.message)
 
         setDesc("")
         setType("")
