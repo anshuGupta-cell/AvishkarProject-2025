@@ -18,8 +18,8 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="flex gap-2">
-                    <Link href="/">Home</Link>
-                    <Link href="/generate">Generate</Link>
+                    {/* <Link href="/">Home</Link>
+                    <Link href="/generate">Generate</Link> */}
                 </div>
             </div>
             <div className="flex  text-black py-1 px-2 gap-2">
