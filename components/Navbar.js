@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import {
-    ClerkProvider,
     SignInButton,
     SignUpButton,
     SignedIn,
@@ -22,7 +21,7 @@ const Navbar = () => {
             <div className="flex justify-between p-3 gap-3 bg-purple-900">
                 <div className="text-xl grid items-center">
                     <Link href="/">
-                        Name
+                        DisasterShield
                     </Link>
                 </div>
                 <div className="flex gap-2 items-center">

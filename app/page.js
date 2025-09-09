@@ -82,7 +82,7 @@ const Home = () => {
 
     return (
         <main className="bg-gray-200 pb-16">
-            <section className=" max-w-[700] py-3 px-2 m-auto text-black">
+            <section className=" max-w-[700] py-3 px-2 m-auto grid gap-1 text-black">
                 <h1 className="text-3xl">Messages</h1>
                 {alerts.length === 0 ? <div>No data to show</div> :
                     alerts.map(alert => (

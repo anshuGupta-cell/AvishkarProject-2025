@@ -18,7 +18,17 @@ const Generate = () => {
         { id: 6, name: "Electricty" },
         { id: 7, name: "Gas Leak" },
         { id: 8, name: "Theft" },
-
+        { id: 9, name: "Electricity" },
+        { id: 10, name: "IoT device support" },
+        { id: 11, name: "Wild animals" },
+        { id: 12, name: "Missing child" },
+        { id: 13, name: "Theft" },
+        { id: 14, name: "Bridge collapse" },
+        { id: 15, name: "Road accident" },
+        { id: 16, name: "Dam failure" },
+        { id: 17, name: "Chemical spill" },
+        { id: 18, name: "Rescuer operation" },
+        
     ]
 
     const submit = async (e) => {
