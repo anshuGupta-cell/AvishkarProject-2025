@@ -92,7 +92,7 @@ const Home = () => {
                                 <div className="flex items-center gap-2">
                                     <p>{alert.body.date}</p>
                                     
-                                    {isSingedIn && <button type="button" className=" hover:bg-slate-300 p-1 rounded-lg" onClick={()=>{deleteMessage(alert._id)}}><img className="w-4" src="/trash-solid-full.svg"/></button>}
+                                    {!isSingedIn && <button type="button" className=" hover:bg-slate-300 p-1 rounded-lg" onClick={()=>{deleteMessage(alert._id)}}><img className="w-4" src="/trash-solid-full.svg"/></button>}
                                 </div>
                             </div>
                             <div className="p-1 bg-slate-200 rounded grid gap-1">
